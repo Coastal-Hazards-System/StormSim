@@ -1,9 +1,9 @@
 # StormSim
 Repository to host CHS/StormSim tools ready for public use while in active development. 
 
-Tools to be hosted here initially:
-1. StormSim-PST: Probabilistic Simulation Technique 
-2. StormSim-JPM: Joint Probability Method
+Initial tools to be hosted here:
+1. Probabilistic Simulation Technique (PST)
+2. Joint Probability Method (JPM)
 
 
 
