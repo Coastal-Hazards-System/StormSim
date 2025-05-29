@@ -1,9 +1,65 @@
-# StormSim
-Repository to host CHS/StormSim tools ready for public use while in active development. 
+![SSLogo](https://github.com/Coastal-Hazards-System/StormSim-Library/assets/51959561/2b532547-1716-4bdb-815e-9e646b93615a)
+# *StormSim – A Modular Engineering Tool Suite for Probabilistic Coastal Hazard Analysis (PCHA) and Coastal Structure Design*
+Thank you for being a part of our exciting journey as we unveil the U.S. Army Corp of Engineers (USACE) StormSim cutting-edge probabilistic tool suite, developed by the Coastal Hazards Group (CHG). Your interest and participation are truly appreciated.
 
-Initial tools to be hosted here:
-1. Probabilistic Simulation Technique (PST)
-2. Joint Probability Method (JPM)
+## Development Stage
+StormSim tools have been in development for more than 20 years and have contributed to numerous USACE projects and federal studies. While we have put the existing tools through extensive testing, pauses in funding have inevitably delayed the large-scale release of StormSim tools. 
+However, the USACE Water Modeling Strategic RD&T Investments is funding StormSim beginning in the second half of FY25. We are genuinely excited to have you on board as part of this exciting new phase. Together, we're paving the way for a future of innovative probabilistic analysis and engineering design workflows.
+
+## External Dependencies 
+### Coastal Hazard System (CHS) regional coastal storm hazard studies and PCHA results (https://chs.erdc.dren.mil)
+The CHS is a national-scale, multiagency initiative for quantifying coastal storm hazards along U.S. coastlines and other strategic locations critical to national security. Key CHS components encompass a comprehensive and robust probabilistic framework (CHS-PF) and an online database (CHS-BD) for production and deployment of PCHA results. CHS directly supports USACE’s Coastal Storm Risk Management (CSRM), Flood Risk Management (FRM), and Navigation missions, in addition to other federal, state, and local government agencies. The CHS ensures that the atmospheric and hydrodynamic forcing data, including mean sea level fluctuations and astronomical tides, used to evaluate multiple aspects related to USACE missions are based on consistent methodology, quality, and are uniquely tailored to address the primary drivers of coastal hazards specific to the regions in which assets are located, including hurricanes or tropical cyclones (TCs), extratropical cyclones (XCs), and other extreme hydrodynamic events.
+
+CHS is a unique data resource that spans probability space, was developed with high-fidelity modeling, is spatially uniform and dense on a national scale, and includes aleatory and epistemic uncertainty information necessary for determining probabilistic responses. Modeling results are reported through virtual gauges (e.g., save point or node) across regional studies. These virtual gauges include modeling results for both ocean circulation (ADCIRC) and wave models (STWAVE/WAM/SWAN). CHS regional study probabilistic and numerical modeling results can be downloaded [here](https://chs.erdc.dren.mil).
+
+![image](https://github.com/Coastal-Hazards-System/StormSim-Library/assets/51959561/df664577-5593-4410-99c1-b967f68ba59f)
+
+The following figure summarizes the CHS data download process: (1) choose a regional study; (2) apply the modeling condition filter; (3) choose the most suitable virtual gauge for your project.
+When selecting project-forcing data, consider the hazards you want to include (XC vs. TC vs. both) and the level of fidelity (Peaks vs. Timeseries vs. both). Currently, StormSim only supports base modeling conditions as a forcing input. Utilizing CHS data means any analysis will involve the full storm suite for a given regional study. The downloaded zip folder must contain Peaks and/or Timeseries files for both models associated with a savepoint (ADCIRC + Wave Model). 
+
+<p align="center" width="100%">
+    <img width="100%" src="https://github.com/Coastal-Hazards-System/StormSim-Library/assets/51959561/f8f5a12f-3e75-44bd-a6b5-e7af0845a877">
+</p>
+For a more detailed guide on accessing and navigating CHS files/website, [visit this link](https://chs.erdc.dren.mil/Content/documents/CHSQuickGuide.pdf).
 
 
+# Select List of StormSim Modules in Development
+Some of the StormSim modules currently in development and that will be hosted in this repository include:
 
+### StormSim-PST: Probabilistic Simulation Technique
+StormSim-PST estimates extra-tropical cyclone (XC) storm response hazards. StormSim is a component of the Coastal Hazards System (CHS https://chs.erdc.dren.mil, Nadal-Caraballo et al. 2020) which is a national-scale initiative to quantify coastal storm hazards. Results from high-fidelity, physics-informed numerical modeling of coastal storm events spanning the practical probability space for the U.S. coastline are stored on an online database (CHS-DB). Historical XCs were modeled in a high-fidelity coupled hydrodynamic framework (Massey et al. 2012) for regional studies to produce coastal wave and water level responses. This was completed for multiple sea level rise conditions. Both peak and timeseries values are available. StormSim can evaluate responses over entire timeseries within a probabilistic framework with relatively small computational costs. Tides can be either randomly sampled, applied as uncertainty, or applied as a skew tide to account for nonlinearities. StormSim-PST ingests modeled historical storm responses. Responses are bootstrapped sampled, including aleatory uncertainty, to encompass multiple sequences or life cycles of storm responses. Peaks-over-threshold is used to identify extreme events from sampling. These extreme events are fit to a generalized Pareto distribution (GPD), which captures the low-frequency tail of response hazards.
+
+### StormSim-JPM: Joint Probability Method
+StormSim-JPM estimates tropical cyclone (TC) storm response hazards (Nadal-Caraballo and Melby 2014). StormSim is a component of the Coastal Hazards System (CHS https://chs.erdc.dren.mil/, Nadal-Caraballo et al. 2020) which is a national-scale initiative to quantify coastal storm hazards. Results from high-fidelity, physics-informed numerical modeling of coastal storm events spanning the practical probability space for the U.S. coastline are stored on an online database (CHS-DB). Synthetic TCs were modeled in a high-fidelity coupled hydrodynamic framework (Massey et al. 2012) for regional studies to produce coastal wave and water level responses. This was completed for multiple sea level rise conditions. Discrete storm weights (DSW) define TC storm probability and are used to estimate hazards. Both peak and timeseries values are available. StormSim can evaluate responses over entire timeseries within a probabilistic framework with relatively small computational costs. Tides can be either randomly sampled, applied as uncertainty, or applied as a skew tide to account for nonlinearities. TC responses, such as waves and water levels, are ingested into StormSim-JPM, aleatory uncertainty is applied to these storm responses using hundreds of thousands of storms, and associated DSWs are used to estimate best-estimate (BE) exceedance probabilities. Confidence limits are computed by applying epistemic uncertainties to BE hazard curves. Additional details about coastal storm uncertainties are in Gonzalez et al. (2019).
+
+### StormSim-LCS: Life Cycle Simulation
+StormSim-LCS computes time-dependent stochastic analysis of coastal structure responses. Current coastal structure responses include dune and beach morphology and rubble mound armor stone damage progression. StormSim is a component of the Coastal Hazards System (CHS https://chs.erdc.dren.mil, Nadal-Caraballo et al. 2020) which is a national-scale initiative to quantify coastal storm hazards. Results from high-fidelity, physics-informed numerical modeling of coastal storm events spanning the practical probability space for the U.S. coastline are stored on an online database (CHS-DB). Synthetic TCs and XCs were modeled in a high-fidelity coupled hydrodynamic framework (Massey et al. 2012) for regional studies to produce coastal wave and water level responses. This was completed for multiple sea level rise conditions. Discrete storm weights (DSW) define TC storm probability and are used to estimate hazards. Both peak and timeseries values are available. StormSim can evaluate responses over entire timeseries within a probabilistic framework with relatively small computational costs. Tides can be either randomly sampled, applied as uncertainty, or applied as a skew tide to account for nonlinearities. Life cycles are generated from sampled storms, sampled using a Poisson distribution to create a life cycle reflective of the larger population of storm intensities and associated probabilities at the study location. TCs are sampled using DSWs and XCs are sampled either historically or from stochastic simulation using bivariate or multivariate Gaussian copulas. Storms may also be sampled by binning storms by intensity prior to sampling, then sampling from intensity bins to represent storm intensity probabilities more accurately throughout the entire life cycle. Aleatory uncertainties are accounted by stochastically creating hundreds of life cycles, which also ensure statistical convergence. Structure life-cycle responses can be used to estimate statistical structure reliability and performance. 
+
+### StormSim-PROS: Probabilistic Responses Of Structures
+StormSim-PROS probabilistically estimates structure response hazards using response-based methods. Coastal structure responses include floodwall, levee, and rubble mound overtopping and volume discharge, levee and rubble mound runup, floodwall hydrodynamic and hydrostatic pressures, and rubble mound stone stability. StormSim is a component of the Coastal Hazards System (CHS https://chs.erdc.dren.mil, Nadal-Caraballo et al. 2020) which is a national-scale initiative to quantify coastal storm hazards. Results from high-fidelity, physics-informed numerical modeling of coastal storm events spanning the practical probability space for the U.S. coastline are stored on an online database (CHS-DB). Synthetic TCs and XCs were modeled in a high-fidelity coupled hydrodynamic framework (Massey et al. 2012) for regional studies to produce coastal wave and water level responses. This was completed for multiple sea level rise conditions. Discrete storm weights (DSW) define TC storm probability and are used to estimate hazards. Both peak and timeseries values are available. StormSim can evaluate responses over entire timeseries within a probabilistic framework with relatively small computational costs. Tides can be either randomly sampled, applied as uncertainty, or applied as a skew tide to account for nonlinearities. Structure responses are computed for hundreds of thousands of storm realizations following the StormSim-JPM and StormSim-PST workflows. Exceedance probabilities of the structure responses themselves are estimated. StormSim-PROS maintains the high fidelity multivariate statistical and physical interdependencies between storm forcing parameters without assuming identical probabilities of forcing parameters and structure responses (Stehno and Melby, in review). Epistemic uncertainties associated with storm response and empirical equations are applied as confidence limits to the BE response hazards. Results from StormSim-PROS are used for coastal structure designs when designs require non-exceedance of a structure response hazard at a given probability.
+
+# Contact Information
+
+## StormSim Feedback & Support
+*Development Team:* StormSim@usace.army.mil (**email address is currently inactive**)
+
+## StormSim Management
+Kevin C. Hodgens – *Principal Investigator:* Kevin.C.Hodgens@usace.army.mil
+
+Norberto C. Nadal-Caraballo, PhD – *Senior Technical Lead:* Norberto.C.Nadal-Caraballo@usace.army.mil
+
+
+# References
+Gonzalez, V.M., Nadal-Caraballo, N.C., Melby, J.A., Cialone, M.A. (2019). Quantification of Uncertainty in Probabilistic Storm Surge Models: Literature Review. Technical Report ERDC/CHL TR-21-15, Vicksburg, MS: U.S. Army Engineer Research and Development Center.
+
+Melby, J.A., Nadal, N.C., Males, R.M. (2011). CSsim: Breakwater-Harbor Time-Dependent Life-Cycle Analysis Software. Coastal Structure 2011 Conference Proceedings, World Scientific, Singapore, pp 649-658.
+
+Melby, J.A., Massey, T.C., Das, H.S., Nadal-Caraballo, N.C., Gonzalez, V.M., Bryant, M.A., Tritinger, A.S., Provost, L.A., Owensby, M.B, and Stehno, A.L. (2021). Coastal Texas Protection and Restoration Feasibility Study: Coastal Texas flood risk assessment: hydrodynamic response and beach morphology. ERDC TR-21-11, Vicksburg, MS: U.S. Army Engineer Research and Development Center.
+
+Melby, J.A., Massey, T.C., Stehno, A.L., Nadal-Caraballo, N.C., Misra, S., Gonzalez, V.M. (2021). Sabine Pass to Galveston Bay, TX Pre-Construction, Engineering and Design PED Hurricane Coastal Storm Surge and Wave Hazard Assessment: Report 1- Background and Approach. Technical Report ERDC/CHL TR-21-15, Vicksburg, MS: U.S. Army Engineer Research and Development Center. http://dx.doi.org/10.21079/11681/41820
+
+Nadal-Caraballo, N. C., J. A. Melby, V. M. Gonzalez, A. T. Cox (2015). North Atlantic Coast Comprehensive Study (NACCS) Coastal Storm Hazards from Virginia to Maine. ERDC/CHL TR-15-5. U.S. Army Engineer R&D Center, Vicksburg, M.S
+
+Nadal-Caraballo, Campbell, Gonzalez, Torres, Melby, Taflanidis, (2020). Coastal Hazards System: A Probabilistic Coastal Hazard Analysis Framework. In: Malvárez, G. and Navas, F. eds., Global Coastal Issues of 2020. Journal of Coastal Research, Special Issue No. 95, pp. 1211-1216.
+
+Stehno, A.L., (2021). Coastal Structure Overtopping and Overflow Stochastic Simulation Method Comparison. M.S. Thesis. Mississippi College, Clinton, Mississippi. 10.13140/RG.2.2.10123.41761 
