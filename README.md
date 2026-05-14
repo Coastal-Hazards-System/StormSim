@@ -4,7 +4,7 @@
 ### *A Modular Coastal Engineering Framework for Probabilistic Coastal Hazard Analysis and Structure Design*
 ### *(formerly StormSim)*
  
-Thank you for being a part of our exciting journey as we unveil **CHESS - the Coastal Hazards, Engineering, and Structures System**, the U.S. Army Corps of Engineers (USACE) probabilistic tool suite developed by the Coastal Hazards Group (CHG). Your interest and participation are truly appreciated.
+Thank you for being a part of this journey as we unveil **CHESS - the Coastal Hazards, Engineering, and Structures System**, developed by the the U.S. Army Corps of Engineers (USACE), Coastal Hazards Group (CHG). Your interest and participation are truly appreciated.
  
 ## A New Name for an Expanding System
  
