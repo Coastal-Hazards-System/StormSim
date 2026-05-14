@@ -1,7 +1,7 @@
 ![SSLogo](https://github.com/Coastal-Hazards-System/StormSim-Library/assets/51959561/2b532547-1716-4bdb-815e-9e646b93615a)
 
 # *CHESS – Coastal Hazards, Engineering, and Structures System*
-### *A Modular Engineering Tool Suite for Probabilistic Coastal Hazard Analysis and Coastal Structure Design*
+### *A Modular Coastal Engineering Framework for Probabilistic Coastal Hazard Analysis and Structure Design*
 ### *(formerly StormSim)*
  
 Thank you for being a part of our exciting journey as we unveil **CHESS - the Coastal Hazards, Engineering, and Structures System**, the U.S. Army Corps of Engineers (USACE) probabilistic tool suite developed by the Coastal Hazards Group (CHG). Your interest and participation are truly appreciated.
