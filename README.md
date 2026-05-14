@@ -72,15 +72,20 @@ Module-level citations should use the new prefix (e.g., **CHESS-JPM**) and may o
  
 # Contact Information
 
-## StormSim Feedback & Support
+## CHESS Feedback & Support
 *Development Team:* CHESS@usace.army.mil (**email address is currently inactive**)
 
-## StormSim Management
-Kevin C. Hodgens – *Principal Investigator:* Kevin.C.Hodgens@usace.army.mil
+## CHESS Team
 
-Norberto C. Nadal-Caraballo, PhD – *Senior Technical Lead:* Norberto.C.Nadal-Caraballo@usace.army.mil
+Fabian A. Garcia-Moreno - Fabian.A.Garcia-Moreno@usace.army.mil
 
-Madison C. Yawn – *Coastal Hazards Group (CHG) Co-Lead:* Madison.C.Yawn@usace.army.mil
+Kevin C. Hodgens - Kevin.C.Hodgens@usace.army.mil
+
+Abigail L. Stehno, PhD - Abigail.L.Stehno@usace.army.mil
+
+Norberto C. Nadal-Caraballo, PhD - Norberto.C.Nadal-Caraballo@usace.army.mil
+
+Madison C. Yawn - Madison.C.Yawn@usace.army.mil
 
 
 # References
